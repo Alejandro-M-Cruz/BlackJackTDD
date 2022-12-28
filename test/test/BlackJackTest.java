@@ -107,7 +107,7 @@ public class BlackJackTest {
 
     public Hand createHand(Card... cardsArray) {
         return new Hand() {         
-            Card[] cards = cardsArray.clone();
+            private Card[] cards = cardsArray.clone();
             
             @Override
             public int value() {
@@ -208,11 +208,11 @@ public class BlackJackTest {
     
     public Deck createDeck(Card... cards) {
         return new Deck() {
-            int actualCard = 0;
+            private int currentCard = 0;
             
             @Override
             public Card takeCard() {
-                return cards[actualCard++];
+                return cards[currentCard++];
             }
         };
     }
